@@ -1,0 +1,18 @@
+using UnityEngine; 
+public class Bullet : MonoBehaviour 
+{ 
+    public float speed = 10f; 
+    public float lifetime = 3f; 
+    private float timer; 
+    void Start() { timer = 0; } 
+    void Update() { 
+        // Move forward
+        transform.position += transform.forward * speed * Time.deltaTime; 
+        // Destroy after lifetime
+        timer += Time.deltaTime; 
+        if (timer >= lifetime) 
+        { 
+            Destroy(gameObject); // This is expensive!
+} 
+} 
+} 
